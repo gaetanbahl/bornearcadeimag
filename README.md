@@ -124,6 +124,15 @@ GroovyArcade est une distribution pour borne d'arcade basée sur Archlinux. Le p
 est éparpillé un peu partout sur la toile, donc j'ai mis la dernière iso 32 bit que j'ai
 trouvée sur mon drive : https://drive.google.com/open?id=0B1wBYVhSt02eTnh2VndhN2dnLU0
 
+Disons-le tout de suite, il n'est pas possible d'installer d'autres paquets que ceux
+qui sont déjà présents dans la distro. Il faudrait déjà connecter le PC de la borne 
+à internet, et on serait obligés de mettre à jour pacman et plein de trucs, sauf que
+ça casse immédiatement tout parce qu'apparemment pacman a changé de format de base de 
+données depuis et on peut pas utiliser l'ancienne et voilà bref c'est pas possible.
+
+Le seul moyen d'installer des logiciels est de les compiler en 32 bits sur autre machine 
+(une VM par ex) et de les installer manuellement sur la borne.
+
 ###Kernel
 
 Pour que le PC puisse sortir du 15Khz, il faut que le Kernel soit patché pour que le driver
@@ -170,7 +179,21 @@ Le bureau lxde sera dégueulasse (texte non lisible)  parce que la résolution d
 Il n'est PAS possible de brancher le VGA sur un moniteur classique juste pour faire les 
 manips car la sortie vidéo du pc sera en 15Khz, ce qui n'est pas géré par les écrans LCD.
 
-##
+Les fichiers de configuration se trouvent dans ~/.wahcade
+
+###Emulateur : Gens
+
+Pour l'instant, le seul émulateur configuré est gens, pour émuler la Genesis/Megadrive.
+Gens est un buggué et ne sauvegarde pas automatiquement la configuration. Lorsqu'un changement
+de configuration est fait, il faut exporter le fichier de config (menu config -> export config as ou un truc du genre) dans ~/.gens/ avec le nom "config". FAITES UN BACKUP DE L'ANCIEN AVANT. D'ailleurs si vous en avez l'occasion, passez le moi, il faut que je le mette sur ce
+git, je n'ai pas eu le temps de le faire avant de partir de l'imag.
+
+### Roms
+
+Les roms megadrive sont stockées dans ~/Roms. Il faut l'indiquer à WahCade lors de la 
+configuration d'un émulateur pour qu'il puisse localiser les jeux et en faire une liste.
+Il a donc fallu lui indiquer que les roms pour l'émulateur gens se trouvent dans ~/Roms et
+qu'elles ont pour extension .bin (et non .zip !).
 
 
 
