@@ -75,8 +75,8 @@ La documentation concernant la JPAC se trouve là https://www.ultimarc.com/jpac2
 
 ### Interface joystick usb 
 
-![interface](/images/interface.jpg)
 
+<img src="/images/interface.jpg" height=200px \>
 
 http://www.joystick-arcade.com/fr/adaptateurs-convertisseurs/138-interface-usb-2-joueurs-cosses-28mm-pour-raspberry-pi-pc-ps3.html
 
@@ -93,6 +93,23 @@ Il est important de noter que cette interface usb ne respecte pas entièrement l
 car elle produit des valeurs trop négatives lorsque l'on utilise les directions hautes et gauche des joysticks.
 C'est pourquoi nous avons dû modifier quelques lignes de code du noyau Linux pour accepter
 ces valeurs (voir partie Logiciel ci-après).
+
+### Ordinateur
+
+L'ordinateur est à base d'un Pentium 4, ce qui suffit largement pour de l'émulation de systèmes retro.
+Il est à noter que c'est un processeur 32 bits.
+
+La carte graphique du PC est très importante car il faut qu'elle soit capable de sortir
+un signal 15Khz. Ces cartes n'existent qu'en AGP, c'est pourquoi il faut une vielle carte
+mère (et donc un vieux processeur) pour les faire fonctionner. Si cette carte graphique
+venait à tomber en panne, il faudrait la remplacer par une autre carte de la série ATI 9000,
+de préférence une 9200.
+
+### Clavier
+
+Un clavier est fixé sur l'intérieur de la porte. La touche Échap est positionnée en face
+de l'ouverture où l'on devrait normalement mettre les pièces. Elle est utilisée pour quitter
+le jeu, c'est donc pratique de l'avoir en face du trou.
 
 ## Logiciel
 
