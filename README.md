@@ -27,7 +27,7 @@ Il est possible d'installer un cadenas à l'avant.
 
 ### Écran
 
-Le manuel de l'écran et une doc sur son entretien se trouve dans le dossier "ecran".
+Le manuel de l'écran et une doc sur son entretien se trouvent dans le dossier "ecran".
 
 L'écran est un Hantarex MTC 9000, produit dans les années 80. Le contraste,
 la luminosité et la quantité de chaque couleur se règlent avec des 
@@ -111,7 +111,68 @@ Un clavier est fixé sur l'intérieur de la porte. La touche Échap est position
 de l'ouverture où l'on devrait normalement mettre les pièces. Elle est utilisée pour quitter
 le jeu, c'est donc pratique de l'avoir en face du trou.
 
+### Haut-parleurs
+
+Les haut-parleurs sont branchés au PC et se trouvent dans le bas de la borne d'arcade. 
+Ce sont les haut-parleurs de mon tout premier PC (1996), prenez-en soin :)
+
 ## Logiciel
+
+###Distribution : GroovyArcade
+
+GroovyArcade est une distribution pour borne d'arcade basée sur Archlinux. Le projet
+est éparpillé un peu partout sur la toile, donc j'ai mis la dernière iso 32 bit que j'ai
+trouvée sur mon drive : https://drive.google.com/open?id=0B1wBYVhSt02eTnh2VndhN2dnLU0
+
+###Kernel
+
+Pour que le PC puisse sortir du 15Khz, il faut que le Kernel soit patché pour que le driver
+ATI gère ce mode. GroovyArcade est pré-patchée pour le 15Khz.
+
+Nous avons cependant dû modifier et recompiler le kernel nous mêmes pour que les directions
+haut et gauche des joysticks soient correctement lues depuis la carte Xin Mo (cf plus haut).
+Ce sont quelques lignes à modifier dans la noyau linux avant la compilation pour que celui-ci
+borne les valeurs trop négatives ou trop positives dans l'intervalle de la spec au lieu de
+les ignorer.
+
+Ce soucis est réglé dans les noyaux récents, mais nous avons utilisé un kernel 3.7.7 car
+c'est celui proposé par défaut dans l'iso de groovy et n'avions pas de patch 15Khz pour des 
+kernels récents de toutes manière. Le patch pour 3.7.7 est dans le dépôt (dossier patch-3.7
+dans kernel)."man patch" pour pouvoir l'appliquer sur le kernel.
+
+Le patch pour d'autres kernels peut être trouvé là : http://makotoworkshop.org/sources/patch15khz/
+
+Pour que la Xin Mo fonctionne correctement il faut modifier le fichier drivers/hid/hid-input.c dans les sources de Linux. J'ai inclus ce fichier dans le dossier kernel. Les lignes à modifier ont été commentées (ça commence à la ligne 1023), et remplacées par ce qui est dans les
+quelques lignes d'en dessous.
+
+J'ai inclus les sources du kernel déjà patché dans kernel/. Si vous voulez compiler le kernel
+il faudra le faire sur une machine 32 bits, ou dans une VM 32 bits. J'ai pour ma part utilisé
+une Debian 8 32bits. Il n'est pas possible de compiler directement sur la borne, cela prendrait trop de temps
+et les outils de compilation ne sont pas installés
+
+J'ai également inclus le kernel compilé qui est utilisé actuellement 
+(fichier 3.7.7-ARCH.tar.bz2), il suffit de le décompresser
+et de l'installer. Se référer à la doc de Archlinux https://wiki.archlinux.org/index.php/Kernels/Traditional_compilation#Compilation_and_installation
+
+###Frontend : Wah!Cade
+
+Cette distribution lance automatiquement WahCade, un frontend permettant d'avoir une liste
+des roms à disposition et de les lancer avec les émulateurs qui vont bien. Pour configurer
+WahCade, il faut le quitter, puis une fois dans le menu de Groovy aller dans setup, puis 
+frontend, choisir LXDE, revenir en arrière, faire start frontend. On arrive ensuite sur 
+le bureau LXDE où il y a un raccourci pour WahCade setup. Une fois les réglages terminés, 
+lancer lxterminal avec Alt-F2, faire "setxkbmap fr" si besoin, lancer "sudo gasetup", refaire
+la manip faite plus haut en choisissant wahcade à la place de lxde, et redémarrer le PC 
+("sudo reboot").
+
+Le bureau lxde sera dégueulasse (texte non lisible)  parce que la résolution de l'écran est trop faible. Pour 
+être sûrs de ce que vous faites, ayez à votre disposition sur un autre PC un VM avec GroovyArcade et faites les manips en même temps.
+Il n'est PAS possible de brancher le VGA sur un moniteur classique juste pour faire les 
+manips car la sortie vidéo du pc sera en 15Khz, ce qui n'est pas géré par les écrans LCD.
+
+##
+
+
 
 ## Pistes d'amélioration
 
