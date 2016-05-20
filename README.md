@@ -184,7 +184,7 @@ Les fichiers de configuration se trouvent dans ~/.wahcade
 ###Emulateur : Gens
 
 Pour l'instant, le seul émulateur configuré est gens, pour émuler la Genesis/Megadrive.
-Gens est un buggué et ne sauvegarde pas automatiquement la configuration. Lorsqu'un changement
+Gens est buggué et ne sauvegarde pas automatiquement la configuration. Lorsqu'un changement
 de configuration est fait, il faut exporter le fichier de config (menu config -> export config as ou un truc du genre) dans ~/.gens/ avec le nom "config". FAITES UN BACKUP DE L'ANCIEN AVANT. D'ailleurs si vous en avez l'occasion, passez le moi, il faut que je le mette sur ce
 git, je n'ai pas eu le temps de le faire avant de partir de l'imag.
 
