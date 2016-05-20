@@ -55,7 +55,22 @@ par en haut, il y a deux loquets (type bouteille de Fisher) à ouvrir, (un à ga
 à droite), pour que le panneau bascule. C'est normal de ne pas les voir quand on regarde depuis l'extérieur de la borne. Il faut chercher à l'aveugle ou avec une caméra. 
 
 Ça ressemble à ça mais en vertical.
-![loquet](/images/loquet.png)
+![loquet](/images/loquet.jpg)
+
+### Interface ultimarc JPAC JAMMA
+
+![JPAC](/images/jpac.jpg)
+
+La borne étant au standard Jamma, il y a un conecteur jamma à l'intérieur. Pour l'utiliser,
+il est relié à une interface JPAC. L'interface JPAC permet normalement d'utiliser les
+joysticks avec un PC, et d'utiliser la sortie vidéo du PC pour l'afficher sur l'écran, mais
+la partie joystick de cette JPAC n'est pas fonctionnelle (elle a sans doute grillé suite
+à des manipulations hasardeuses). Néanmoins, la partie VGA fonctionne bien et est utile pour
+afficher un signal 31Khz sur l'écran 15Khz (ça affiche l'image deux fois, mais au moins
+ça l'affiche), pour aller dans le bios du pc, par exemple. Ici, donc, la JPAC n'est utilisée
+que pour convertir le signal VGA en ce qui va bien pour l'écran 15Khz.
+
+La documentation concernant la JPAC se trouve là https://www.ultimarc.com/jpac2.html
 
 
 ## Logiciel
