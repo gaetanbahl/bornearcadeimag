@@ -133,6 +133,11 @@ données depuis et on peut pas utiliser l'ancienne et voilà bref c'est pas poss
 Le seul moyen d'installer des logiciels est de les compiler en 32 bits sur autre machine 
 (une VM par ex) et de les installer manuellement sur la borne.
 
+Au fait ça peut être utile : 
+
+user : arcade
+mdp : poney
+
 ###Kernel
 
 Pour que le PC puisse sortir du 15Khz, il faut que le Kernel soit patché pour que le driver
@@ -190,12 +195,56 @@ git, je n'ai pas eu le temps de le faire avant de partir de l'imag.
 
 ### Roms
 
+Les roms megadrive sont stockées dans ~/Roms. Il faut l'in
+frontend, choisir LXDE, revenir en arrière, faire start frontend. On arrive ensuite sur 
+le bureau LXDE où il y a un raccourci pour WahCade setup. Une fois les réglages terminés, 
+lancer lxterminal avec Alt-F2, faire "setxkbmap fr" si besoin, lancer "sudo gasetup", refaire
+la manip faite plus haut en choisissant wahcade à la place de lxde, et redémarrer le PC 
+("sudo reboot").
+
+Le bureau lxde sera dégueulasse (texte non lisible)  parce que la résolution de l'écran est trop faible. Pour 
+être sûrs de ce que vous faites, ayez à votre disposition sur un autre PC un VM avec GroovyArcade et faites les manips en même temps.
+Il n'est PAS possible de brancher le VGA sur un moniteur classique juste pour faire les 
+manips car la sortie vidéo du pc sera en 15Khz, ce qui n'est pas géré par les écrans LCD.
+
+Les fichiers de configuration se trouvent dans ~/.wahcade
+
+###Emulateur : Gens
+
+Pour l'instant, le seul émulateur configuré est gens, pour émuler la Genesis/Megadrive.
+Gens est buggué et ne sauvegarde pas automatiquement la configuration. Lorsqu'un changement
+de configuration est fait, il faut exporter le fichier de config (menu config -> export config as ou un truc du genre) dans ~/.gens/ avec le nom "config". FAITES UN BACKUP DE L'ANCIEN AVANT. D'ailleurs si vous en avez l'occasion, passez le moi, il faut que je le mette sur ce
+git, je n'ai pas eu le temps de le faire avant de partir de l'imag.
+
+### Roms
+
 Les roms megadrive sont stockées dans ~/Roms. Il faut l'indiquer à WahCade lors de la 
 configuration d'un émulateur pour qu'il puisse localiser les jeux et en faire une liste.
 Il a donc fallu lui indiquer que les roms pour l'émulateur gens se trouvent dans ~/Roms et
 qu'elles ont pour extension .bin (et non .zip !).
 
-
-
 ## Pistes d'amélioration
+
+### Tri des roms megadrive
+
+Il y a 751 roms Megadrive et beaucoup d'entre-elles sont inutiles (tous les jeux de sports de toutes les années merci quoi).
+Il faut juste se placer dans le répertoire ~/Roms et supprimer ce qui ne sert à rien pour laisser une centaine de roms de jeux bien.
+
+### Ajout d'un émulateur
+
+On peut par exemple ajouter mame. Il faut pour cela rajouter une entrée dans wahcade setup, mettre les roms dans un dossier genre 
+~/RomsMame, set la bonne extension pour les roms et dire à wahcade où les trouver.
+
+Ensuite il faut paramétrer wahcade pour pouvoir changer d'émulateur, par exemple avec les boutons 4 et 5 du P1, ou le joystick du
+P2.
+
+Enfin il faut paramétrer mame pour qu'il prenne les joysticks et les boutons comme entrée.
+
+### Améliorer le layout de wahcade
+
+On peut remarquer que le layout actuel de wahcade n'est pas parfait, en particulier il y a un gros carré avec "No Image" qui ne
+sert à rien du tout vu qu'on n'a pas les artworks des roms.
+
+Il y a un programme sur le bureau LXDE qui s'appelle Wahcade layout. Celui qui est utilisé est le 640x480, donc il faut ouvrir
+celui-ci au lancement du programme. Ensuite virer ce qui ne sert à rien, faire un layout joli, et sauvegarder.
 
