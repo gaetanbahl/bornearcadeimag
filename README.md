@@ -49,6 +49,8 @@ a pas de sens.
 Les joysticks sont classiques également, ils utilisent un connecteur 5 pins
 (une pin noire pour la masse), 4 pins pour les quatres directions). 
 
+Au moment de l'écriture de ce readme, le bouton 6 du joueur 2 n'est pas branché (le câble était trop court, et ce bouton n'était pas utile pour l'émulation de la megadrive).
+
 Il peut arriver qu'un des joysticks se débranche. Pour le rebrancher, il faut faire basculer
 le panneau des joysticks. Pour ce faire, ouvrir la porte avant de la borne, passer la main
 par en haut, il y a deux loquets (type bouteille de Fisher) à ouvrir, (un à gauche, un
@@ -71,6 +73,26 @@ que pour convertir le signal VGA en ce qui va bien pour l'écran 15Khz.
 
 La documentation concernant la JPAC se trouve là https://www.ultimarc.com/jpac2.html
 
+### Interface joystick usb 
+
+![interface](/images/interface.jpg)
+
+
+http://www.joystick-arcade.com/fr/adaptateurs-convertisseurs/138-interface-usb-2-joueurs-cosses-28mm-pour-raspberry-pi-pc-ps3.html
+
+Puisque la partie contrôles de la JPAC n'est pas fonctionnelle et qu'une JPAC neuve coûte
+cher, nous avons opté pour une petite interface usb de marque Xin-Mo.
+
+http://www.xin-mo.com/dual-players-controller.html
+
+La description des pins est dans le pdf suivant : https://github.com/gaetanbahl/bornearcadeimag/raw/master/Schema_Encodeur_Joystick-boutons_arcade_USB-2j.pdf
+
+Pour savoir quel bouton est relié à quel pin il suffit de suivre les câbles.
+
+Il est important de noter que cette interface usb ne respecte pas entièrement la spécification USB
+car elle produit des valeurs trop négatives lorsque l'on utilise les directions hautes et gauche des joysticks.
+C'est pourquoi nous avons dû modifier quelques lignes de code du noyau Linux pour accepter
+ces valeurs (voir partie Logiciel ci-après).
 
 ## Logiciel
 
