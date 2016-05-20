@@ -54,8 +54,7 @@ le panneau des joysticks. Pour ce faire, ouvrir la porte avant de la borne, pass
 par en haut, il y a deux loquets (type bouteille de Fisher) à ouvrir, (un à gauche, un
 à droite), pour que le panneau bascule. C'est normal de ne pas les voir quand on regarde depuis l'extérieur de la borne. Il faut chercher à l'aveugle ou avec une caméra. 
 
-Ça ressemble à ça mais en vertical.
-![loquet](/images/loquet.jpg)
+<img src="/images/loquet.jpg" height=100px \>
 
 ### Interface ultimarc JPAC JAMMA
 
