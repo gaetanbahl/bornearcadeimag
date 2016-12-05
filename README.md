@@ -10,6 +10,7 @@ Les informations et fichiers contenus dans ce dépôt peuvent être
 utiles dans l'éventualité d'une panne de la borne ou pour des modifications
 futures.
 
+<img src="/images/IMG_20160519_162552.jpg" height=300px \>
 
 ## Matériel
 
